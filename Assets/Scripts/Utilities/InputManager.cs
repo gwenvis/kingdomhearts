@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Created by Timo Heijne
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,5 +19,15 @@ public class InputManager : MonoBehaviour {
         }
 
         return false;
+    }
+
+    public static bool IsAllDown(KeyCode[] codes) {
+        foreach (KeyCode code in codes) {
+            if (!Input.GetKey(code)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

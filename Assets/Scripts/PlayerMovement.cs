@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Created by Timo Heijne
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,28 +19,13 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    Vector3 pos = transform.position;
-	    Vector3 rot = transform.rotation.eulerAngles;
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-	    if (Input.GetKeyDown(KeyCode.W)) {
-            transform.rotation = Quaternion.Euler(0,0,0);
-        }
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        _rb.velocity = movement * _movementSpeed;
 
-	    if (Input.GetKeyDown(KeyCode.S)) {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-
-	    if (Input.GetKeyDown(KeyCode.A)) {
-            transform.rotation = Quaternion.Euler(0, 270, 0);
-        }
-
-	    if (Input.GetKeyDown(KeyCode.D)) {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
-        }
-
-        if(InputManager.IsAnyDown(new KeyCode[] { KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D }))
-            pos += transform.forward * _movementSpeed * Time.deltaTime;
-
-        _rb.MovePosition(pos);
-	}
+        transform.rotation = Quaternion.LookRotation(_rb.velocity, Vector3.up);
+        Debug.Log(Quaternion.LookRotation(_rb.velocity, Vector3.up));
+    }
 }
