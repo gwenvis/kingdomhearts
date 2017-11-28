@@ -9,12 +9,15 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _movementSpeed;
+    [SerializeField] private PlayerAnimation _playerAnimation;
 
 	// Use this for initialization
 	void Start () {
-	    if (_rb == null) {
-	        Debug.LogError("Rigidbody not found on player");
-	    }
+	    if (_rb == null)
+	        Debug.LogError("PlayerMovement :: Rigidbody not found on player");
+
+        if (_playerAnimation == null)
+            Debug.LogError("PlayerMovement :: _playerAnimation not found");
 	}
 	
 	// Update is called once per frame
@@ -25,7 +28,11 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         _rb.velocity = movement * _movementSpeed;
 
-        transform.rotation = Quaternion.LookRotation(_rb.velocity, Vector3.up);
-        Debug.Log(Quaternion.LookRotation(_rb.velocity, Vector3.up));
+        if (_rb.velocity.x == 0 && _rb.velocity.z == 0) {
+            _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.idle);
+        } else {
+            _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.walking);
+            transform.rotation = Quaternion.LookRotation(_rb.velocity, Vector3.up);
+        }          
     }
 }

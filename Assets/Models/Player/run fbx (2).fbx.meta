@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 1463609448ee32745839e73721f842fa
+timeCreated: 1511877772
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: animatie_simpel:buik
+    100002: animatie_simpel:heup
+    100004: animatie_simpel:heup_jt
+    100006: animatie_simpel:hoofd
+    100008: animatie_simpel:hoofd 1
+    100010: animatie_simpel:ikHandle1
+    100012: animatie_simpel:ikHandle2
+    100014: animatie_simpel:ikHandle3
+    100016: animatie_simpel:ikHandle4
+    100018: animatie_simpel:ikHandle5
+    100020: animatie_simpel:L_been
+    100022: animatie_simpel:L_elbow
+    100024: animatie_simpel:L_elbow 1
+    100026: animatie_simpel:L_hand
+    100028: animatie_simpel:L_hand 1
+    100030: animatie_simpel:L_knie
+    100032: animatie_simpel:L_knie 1
+    100034: animatie_simpel:L_shldr
+    100036: animatie_simpel:L_voet
+    100038: animatie_simpel:L_voet 1
+    100040: animatie_simpel:nek
+    100042: animatie_simpel:R_been
+    100044: animatie_simpel:R_elbow
+    100046: animatie_simpel:R_elbow 1
+    100048: animatie_simpel:R_hand
+    100050: animatie_simpel:R_hand 1
+    100052: animatie_simpel:R_knie
+    100054: animatie_simpel:R_knie 1
+    100056: animatie_simpel:R_shldr
+    100058: animatie_simpel:R_voet
+    100060: animatie_simpel:R_voet 1
+    100062: animatie_simpel:rug
+    100064: animatie_simpel:shoulders
+    100066: animatie_simpel:sora
+    100068: animatie_simpel:torso
+    100070: //RootNode
+    400000: animatie_simpel:buik
+    400002: animatie_simpel:heup
+    400004: animatie_simpel:heup_jt
+    400006: animatie_simpel:hoofd
+    400008: animatie_simpel:hoofd 1
+    400010: animatie_simpel:ikHandle1
+    400012: animatie_simpel:ikHandle2
+    400014: animatie_simpel:ikHandle3
+    400016: animatie_simpel:ikHandle4
+    400018: animatie_simpel:ikHandle5
+    400020: animatie_simpel:L_been
+    400022: animatie_simpel:L_elbow
+    400024: animatie_simpel:L_elbow 1
+    400026: animatie_simpel:L_hand
+    400028: animatie_simpel:L_hand 1
+    400030: animatie_simpel:L_knie
+    400032: animatie_simpel:L_knie 1
+    400034: animatie_simpel:L_shldr
+    400036: animatie_simpel:L_voet
+    400038: animatie_simpel:L_voet 1
+    400040: animatie_simpel:nek
+    400042: animatie_simpel:R_been
+    400044: animatie_simpel:R_elbow
+    400046: animatie_simpel:R_elbow 1
+    400048: animatie_simpel:R_hand
+    400050: animatie_simpel:R_hand 1
+    400052: animatie_simpel:R_knie
+    400054: animatie_simpel:R_knie 1
+    400056: animatie_simpel:R_shldr
+    400058: animatie_simpel:R_voet
+    400060: animatie_simpel:R_voet 1
+    400062: animatie_simpel:rug
+    400064: animatie_simpel:shoulders
+    400066: animatie_simpel:sora
+    400068: animatie_simpel:torso
+    400070: //RootNode
+    4300000: animatie_simpel:sora
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: animatie_simpel:sora
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: cf3bc7bf9db5481468d3572c8ccc5f8e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.25
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
