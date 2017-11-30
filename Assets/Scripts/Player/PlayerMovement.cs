@@ -29,9 +29,9 @@ public class PlayerMovement : MonoBehaviour {
         _rb.velocity = movement * _movementSpeed;
 
         if (_rb.velocity.x == 0 && _rb.velocity.z == 0) {
-            _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.idle);
+            _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Idle);
         } else {
-            _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.walking);
+            _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Walking);
             transform.rotation = Quaternion.LookRotation(_rb.velocity, Vector3.up);
         }          
     }

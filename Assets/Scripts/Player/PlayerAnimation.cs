@@ -7,19 +7,19 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour {
 
     public enum Status {
-        idle,
-        walking,
-        attacking
+        Idle,
+        Walking,
+        Attacking
     }
 
     public enum AttackType {
-        one,
-        two,
-        three,
-        fail
+        One,
+        Two,
+        Three,
+        Fail
     }
 
-    private Status playerStatus = Status.idle;
+    private Status playerStatus = Status.Idle;
 
     [SerializeField]
     private Animator animController;
@@ -46,23 +46,16 @@ public class PlayerAnimation : MonoBehaviour {
     public void ChangePlayerStatus(Status _playerStatus) {
         playerStatus = _playerStatus;
 
-        if(playerStatus == Status.idle) {
+        if(playerStatus == Status.Idle) {
             animController.SetBool("Idle", true);
         } else {
             animController.SetBool("Idle", false);
         }
 
-        if(playerStatus == Status.walking) {
+        if(playerStatus == Status.Walking) {
             animController.SetBool("Walking", true);
         } else {
             animController.SetBool("Walking", false);
         }
     }
-
-    /// <summary>
-    /// Here we play the select
-    /// </summary>
-
-
-
 }
