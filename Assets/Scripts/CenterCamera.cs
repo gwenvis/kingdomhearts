@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
@@ -10,15 +11,26 @@ public class CenterCamera : MonoBehaviour {
 	[SerializeField] private float maxDistance = 10;
     [SerializeField] private Transform target1;
     [SerializeField] private Transform target2;
-	[SerializeField] private float horizontalBounds = 0.2f;
-
-
-	[Header("Speed")] 
-	[SerializeField] private float _cameraSpeed = 5; // set to player speed later.
+	[SerializeField] private float maxHOffset = 3;
+	[SerializeField] private bool lerp = false;
+	[SerializeField] private float camSpeed = 10;
+	
+	private float distance;
+	private float hOffset;
+	private float distHOffset;
+	private Vector3 wantedPosition;
+	private Vector3 staticOffset;
+	private Vector3 lastT1Pos;
 	
 	void Start () 
 	{
 		if(!target1 || !target2) Destroy(this); // terminate this script if there are not two targets.
+		staticOffset = new Vector3(0, 2f, 0);
+		distance = 4;
+		hOffset = -1f;
+		distHOffset = hOffset;
+		wantedPosition = target1.position;
+		lastT1Pos = target1.position;
 	}
 	
 	void LateUpdate ()
@@ -28,23 +40,43 @@ public class CenterCamera : MonoBehaviour {
 		lookAtPoint.y /= 2;
 		lookAtPoint.z /= 2;
 
-		Vector3 velocity = new Vector3();
+		var vec = (target1.position - lastT1Pos);
+		var mag = vec.magnitude;
 		
-		// horizontal movement
-		Vector2 screen = Camera.main.WorldToScreenPoint(target1.position);
-		float w = screen.x / Screen.width;
-		Debug.Log(screen.x);
-		if (w < horizontalBounds) velocity.x = -_cameraSpeed;
-		else if (w > 1 - horizontalBounds) velocity.x = _cameraSpeed;
+		var dist = Vector3.Project(vec, transform.right);
+		var sign = Mathf.Sign(transform.InverseTransformVector(dist).x);
+		hOffset += dist.magnitude * sign;
+		
+		var targetvector = target2.position - target1.position;
+		var targetvectornormal = targetvector.normalized;
+		var cross = Vector3.Cross(targetvectornormal, Vector3.up);
+		
+		SetDist(targetvectornormal);
+		
+		if (Mathf.Abs(hOffset) > maxHOffset && mag > 0.001f)
+		{
+			hOffset = maxHOffset * Mathf.Sign(hOffset);
+			distHOffset = hOffset;
+		}
 
-		// vertical movement
-		Vector3 vectorToPlayer = target1.position - transform.position;// - target1.position;
-		float distance = Vector3.Project(vectorToPlayer, transform.forward).magnitude;
-		if (distance > maxDistance) velocity.z = _cameraSpeed;
-		else if (distance < minDistance) velocity.z = -_cameraSpeed;
-
-		transform.Translate(velocity * Time.deltaTime, Space.Self);
+		SetHorizontalPos(cross, hOffset);
+		
+		transform.position = lerp ? 
+			Vector3.Lerp(transform.position, wantedPosition, 
+				Time.deltaTime * camSpeed) : wantedPosition;
+		
 		transform.LookAt(lookAtPoint);
-
+		lastT1Pos = target1.position;
 	}
+
+	void SetDist(Vector3 targetvectornormal)
+	{
+		wantedPosition = target1.position + (-targetvectornormal * distance) + staticOffset;
+	}
+
+	void SetHorizontalPos(Vector3 cross, float h)
+	{
+		wantedPosition += cross.normalized * h;
+	}
+	
 }
