@@ -21,6 +21,8 @@ public class CenterCamera : MonoBehaviour {
 	private Vector3 wantedPosition;
 	private Vector3 staticOffset;
 	private Vector3 lastT1Pos;
+
+	public static Transform[] Targets { get; private set; }
 	
 	void Start () 
 	{
@@ -31,6 +33,11 @@ public class CenterCamera : MonoBehaviour {
 		distHOffset = hOffset;
 		wantedPosition = target1.position;
 		lastT1Pos = target1.position;
+
+		Targets = new Transform[]
+		{
+			target1, target2
+		};
 	}
 	
 	void LateUpdate ()
@@ -48,8 +55,10 @@ public class CenterCamera : MonoBehaviour {
 		hOffset += dist.magnitude * sign;
 		
 		var targetvector = target2.position - target1.position;
+		targetvector.y = 0;
 		var targetvectornormal = targetvector.normalized;
 		var cross = Vector3.Cross(targetvectornormal, Vector3.up);
+		cross.y = 0;
 		
 		SetDist(targetvectornormal);
 		
