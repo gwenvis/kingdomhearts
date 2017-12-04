@@ -24,8 +24,15 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
+		
+		// Get left vector of character
+		var lockon = CenterCamera.Targets[1];
+		var vector = lockon.transform.position - transform.position;
+		var cross = Vector3.Cross(vector, Vector3.up);
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+		cross.y = vector.y = 0;
+		
+		Vector3 movement = vector.normalized * moveVertical + -cross.normalized * moveHorizontal;
         _rb.velocity = movement * _movementSpeed;
 
         if (_rb.velocity.x == 0 && _rb.velocity.z == 0) {
