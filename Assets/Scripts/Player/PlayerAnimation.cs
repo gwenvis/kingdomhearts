@@ -84,7 +84,7 @@ public class PlayerAnimation : MonoBehaviour {
 
     IEnumerator WaitForAnimToBeDone() {
         yield return new WaitUntil(() => GetBool("Attack") == false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         if (attackQueue != AttackType.None) {
             PlayAttackNumber(attackQueue);
             attackQueue = AttackType.None;

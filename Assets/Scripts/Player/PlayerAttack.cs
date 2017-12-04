@@ -23,24 +23,19 @@ public class PlayerAttack : MonoBehaviour {
             float distance = Vector3.Distance(transform.position, _enemy.position);
             float dot = Vector3.Dot(Vector3.forward, transform.InverseTransformPoint(_enemy.position));
 
-            if (dot > 0.4 && distance < 5) {
-                switch (_playerAnimation.GetAttackType()) {
-                    case PlayerAnimation.AttackType.None:
-                        _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.One);
-                        break;
-                    case PlayerAnimation.AttackType.One:
-                        _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.Two);
-                        break;
-                    case PlayerAnimation.AttackType.Two:
-                        _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.Three);
-                        break;
-                    case PlayerAnimation.AttackType.Three:
-                        _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.One);
-                        break;
-                }
-            } else {
-                //_playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.Fail);
-                Debug.LogWarning("Test");
+            switch (_playerAnimation.GetAttackType()) {
+                case PlayerAnimation.AttackType.None:
+                _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.One);
+                break;
+                case PlayerAnimation.AttackType.One:
+                _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.Two);
+                break;
+                case PlayerAnimation.AttackType.Two:
+                _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.Three);
+                break;
+                case PlayerAnimation.AttackType.Three:
+                _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.One);
+                break;
             }
         }
     }    
