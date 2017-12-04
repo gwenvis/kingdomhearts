@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
         float moveVertical = Input.GetAxis("Vertical");
 		
 		// Get left vector of character
-		var lockon = CenterCamera.Targets[1];
+		var lockon = TargetLock.Targets[1];
 		var vector = lockon.transform.position - transform.position;
 		var cross = Vector3.Cross(vector, Vector3.up);
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44659364, g: 0.4964301, b: 0.5748256, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -459,13 +459,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3730b9ca0564c414f91a7d95e633da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 2
-  maxDistance: 10
-  target1: {fileID: 1002172865}
-  target2: {fileID: 65399243}
-  maxHOffset: 3
-  lerp: 1
-  camSpeed: 20
+  _minDistance: 2
+  _maxDistance: 10
+  _target1: {fileID: 1002172865}
+  _target2: {fileID: 65399243}
+  _maxHOffset: 3
+  _lerp: 0
+  _camSpeed: 10
 --- !u!1001 &1002172857
 Prefab:
   m_ObjectHideFlags: 0
