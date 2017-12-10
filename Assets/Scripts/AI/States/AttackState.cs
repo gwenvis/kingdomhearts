@@ -1,4 +1,6 @@
-﻿namespace AI
+﻿using UnityEngine;
+
+namespace AI
 {
     public struct AttackState : State
     {

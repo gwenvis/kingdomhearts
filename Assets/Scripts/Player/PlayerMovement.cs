@@ -33,13 +33,15 @@ public class PlayerMovement : MonoBehaviour {
 		cross.y = vector.y = 0;
 		
 		Vector3 movement = vector.normalized * moveVertical + -cross.normalized * moveHorizontal;
-        _rb.velocity = movement * _movementSpeed;
-
+        movement = movement.normalized * _movementSpeed;
+		_rb.velocity = new Vector3(movement.x, _rb.velocity.y, movement.z);
+		
         if (_rb.velocity.x == 0 && _rb.velocity.z == 0) {
             _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Idle);
         } else {
             _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Walking);
-            transform.rotation = Quaternion.LookRotation(_rb.velocity, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, 
+	            Quaternion.LookRotation(_rb.velocity, Vector3.up), Time.deltaTime * 10);
         }          
     }
 }

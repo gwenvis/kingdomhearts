@@ -18,7 +18,7 @@ namespace AI
             }
 
             ai.RgdBody.MovePosition(ai.transform.position + direction * ai.moveSpeed * Time.deltaTime);
-            if (ai.GetTargetDistance() > ai.throwDistance)
+            if (ai.GetTargetDistance() > ai.moveDistance)
                 ai.CurrentState = new IdleState();
         }
     }

@@ -13,7 +13,7 @@ namespace AI
                 State state;
                 ai.CurrentState = rand < 0 ?  new AttackState() as State : new MoveState();
             }
-            //else ai.CurrentState = new ThrowState();
+            else ai.CurrentState = new ThrowState();
         }
     }
 }
