@@ -8,33 +8,36 @@ public class AIBall : MonoBehaviour
 {
     private float speed = 15;
     private float height = 2;
-    private float x, a, c;
-    private float distance;
-
+    private float x, a, c, o;
+    private float distance, heightdifference;
+    
     private Vector3 origin, direction;
 
-    public void SetValues(Vector3 origin, Vector3 direction, float distance)
+    // Maybe a minimum distance is needed? maybe.
+    public void SetValues(Vector3 origin, Vector3 direction, float distance, float heightdifference)
     {
-        this.distance = distance;
         this.origin = origin;
         this.direction = direction;
         this.direction.y = 0;
         this.direction.Normalize();
+        this.distance = distance;
+        Debug.Log(distance);
+        if (this.distance < 6) this.distance = 6;
+        this.heightdifference = heightdifference;
+        
         x = 0;
-
-        c = distance / 2;
+        c = this.distance / 2;
         a = height / (c * c);
     }
 
     private void Update()
     {
-        // y = -(a(x-c)^2) + b
-        float y = -(a*((x-c)*(x-c))) + height;
-
-        Debug.Log(y);
+        // y = -(ax^2) + b
+        float y = -(a*(x-c)*(x-c)) + height;
+        o = x / distance * heightdifference;
 
         var pos = direction * x;
-        pos.y = y;
+        pos.y = y + o;
         transform.position = origin + pos;
         
         x += Time.deltaTime * speed;

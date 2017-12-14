@@ -35,7 +35,9 @@ namespace AI
                         .Instantiate(ai.throwingBall, ai.transform.position, ai.transform.rotation)
                         .GetComponent<AIBall>();
 
-                    ob.SetValues(ai.transform.position, -ai.GetTargetVector(), ai.GetTargetDistance());
+                    var vec = ai.GetTargetVector();
+                    
+                    ob.SetValues(ai.transform.position, -vec, ai.GetTargetDistance(), -vec.y);
                 }
 
             }
