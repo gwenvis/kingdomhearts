@@ -37,8 +37,6 @@ public class PlayerAnimation : MonoBehaviour {
     /// </summary>
     /// <param name="type"></param>
     public void PlayAttackNumber(AttackType type) {
-        Debug.Log(type + " " + _attackQueue);
-
         if (GetBool("Attack")) {
             // Animation is playing so we set Queue
             if(_attackQueue == AttackType.None) // If attackQueue is set we ignore this new input.
@@ -74,18 +72,21 @@ public class PlayerAnimation : MonoBehaviour {
         }
     }
 
-    
+    /// <summary>
+    /// Returns Current Attack type
+    /// </summary>
+    /// <returns>AttackType</returns>
     public AttackType GetAttackType() {
         return _attackType;
     }
-
+    
     public bool GetBool(string name) {
         return _animController.GetBool(name);
     }
 
     private IEnumerator WaitForAnimToBeDone() {
         yield return new WaitUntil(() => GetBool("Attack") == false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         if (_attackQueue != AttackType.None) {
             PlayAttackNumber(_attackQueue);
             _attackQueue = AttackType.None;
