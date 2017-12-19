@@ -19,16 +19,16 @@ public class PlayerAnimation : MonoBehaviour {
         Fail = 4       
     }
 
-    private Status playerStatus = Status.Idle;
-    private AttackType attackType = AttackType.None;
-    private AttackType attackQueue = AttackType.None;
+    private Status _playerStatus = Status.Idle;
+    private AttackType _attackType = AttackType.None;
+    private AttackType _attackQueue = AttackType.None;
 
     [SerializeField]
-    private Animator animController;
+    private Animator _animController;
 
 	// Use this for initialization
-	void Start () {
-        if (animController == null)
+    private void Start () {
+        if (_animController == null)
             Debug.LogError("PlayerAnimation :: Missing Animator");
 	}
 
@@ -37,18 +37,18 @@ public class PlayerAnimation : MonoBehaviour {
     /// </summary>
     /// <param name="type"></param>
     public void PlayAttackNumber(AttackType type) {
-        Debug.Log(type + " " + attackQueue);
+        Debug.Log(type + " " + _attackQueue);
 
         if (GetBool("Attack")) {
             // Animation is playing so we set Queue
-            if(attackQueue == AttackType.None) // If attackQueue is set we ignore this new input.
-                attackQueue = type;
+            if(_attackQueue == AttackType.None) // If attackQueue is set we ignore this new input.
+                _attackQueue = type;
         }
         else {
             // No animation is playing so we can play one
-            animController.SetInteger("Attack Type", (int)type);
-            animController.SetTrigger("Attack");
-            attackType = type;
+            _animController.SetInteger("Attack Type", (int)type);
+            _animController.SetTrigger("Attack");
+            _attackType = type;
 
             StartCoroutine(WaitForAnimToBeDone());
         }     
@@ -59,37 +59,38 @@ public class PlayerAnimation : MonoBehaviour {
     /// </summary>
     /// <param name="_playerStatus"></param>
     public void ChangePlayerStatus(Status _playerStatus) {
-        playerStatus = _playerStatus;
+        this._playerStatus = _playerStatus;
 
-        if(playerStatus == Status.Idle) {
-            animController.SetBool("Idle", true);
+        if(this._playerStatus == Status.Idle) {
+            _animController.SetBool("Idle", true);
         } else {
-            animController.SetBool("Idle", false);
+            _animController.SetBool("Idle", false);
         }
 
-        if(playerStatus == Status.Walking) {
-            animController.SetBool("Walking", true);
+        if(this._playerStatus == Status.Walking) {
+            _animController.SetBool("Walking", true);
         } else {
-            animController.SetBool("Walking", false);
+            _animController.SetBool("Walking", false);
         }
     }
 
+    
     public AttackType GetAttackType() {
-        return attackType;
+        return _attackType;
     }
 
     public bool GetBool(string name) {
-        return animController.GetBool(name);
+        return _animController.GetBool(name);
     }
 
-    IEnumerator WaitForAnimToBeDone() {
+    private IEnumerator WaitForAnimToBeDone() {
         yield return new WaitUntil(() => GetBool("Attack") == false);
         yield return new WaitForSeconds(2f);
-        if (attackQueue != AttackType.None) {
-            PlayAttackNumber(attackQueue);
-            attackQueue = AttackType.None;
+        if (_attackQueue != AttackType.None) {
+            PlayAttackNumber(_attackQueue);
+            _attackQueue = AttackType.None;
         } else {
-            attackType = AttackType.None;
+            _attackType = AttackType.None;
         }
     }
 }
