@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 4adaadd1ff91b494db63be87ae9979b5
+timeCreated: 1513594931
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: sora_model_0042:gezicht
+    100004: sora_model_0042:haar
+    100006: sora_model_0042:Heup
+    100008: sora_model_0042:heup_ctr
+    100010: sora_model_0042:hoofd
+    100012: sora_model_0042:hoofd_ctr
+    100014: sora_model_0042:ikHandle1
+    100016: sora_model_0042:ikHandle10
+    100018: sora_model_0042:ikHandle2
+    100020: sora_model_0042:ikHandle3
+    100022: sora_model_0042:ikHandle6
+    100024: sora_model_0042:ikHandle8
+    100026: sora_model_0042:ikHandle9
+    100028: sora_model_0042:L_been
+    100030: sora_model_0042:L_elleboog
+    100032: sora_model_0042:L_elleboog_ctr
+    100034: sora_model_0042:L_enkel
+    100036: sora_model_0042:L_enkel_ctr
+    100038: sora_model_0042:L_hand
+    100040: sora_model_0042:L_knie
+    100042: sora_model_0042:L_knie_ctr
+    100044: sora_model_0042:L_pols
+    100046: sora_model_0042:L_pols_ctr
+    100048: sora_model_0042:L_shoulder
+    100050: sora_model_0042:L_shoulder_ctr
+    100052: sora_model_0042:L_voet
+    100054: sora_model_0042:L_voet 1
+    100056: sora_model_0042:mid
+    100058: sora_model_0042:mid_ctr
+    100060: sora_model_0042:nek
+    100062: sora_model_0042:pasted__polySurface14
+    100064: sora_model_0042:polySurface10
+    100066: sora_model_0042:R_been
+    100068: sora_model_0042:R_elleboog
+    100070: sora_model_0042:R_elleboog_ctr
+    100072: sora_model_0042:R_enkel
+    100074: sora_model_0042:R_enkel_ctr
+    100076: sora_model_0042:R_hand
+    100078: sora_model_0042:R_knie
+    100080: sora_model_0042:R_knie_ctr
+    100082: sora_model_0042:R_pols
+    100084: sora_model_0042:R_pols_ctr
+    100086: sora_model_0042:R_shoulder
+    100088: sora_model_0042:R_shoulder_ctr
+    100090: sora_model_0042:torso
+    100092: sora_model_0042:torso_ctr
+    100094: sora_model_0042:vest
+    400000: //RootNode
+    400002: sora_model_0042:gezicht
+    400004: sora_model_0042:haar
+    400006: sora_model_0042:Heup
+    400008: sora_model_0042:heup_ctr
+    400010: sora_model_0042:hoofd
+    400012: sora_model_0042:hoofd_ctr
+    400014: sora_model_0042:ikHandle1
+    400016: sora_model_0042:ikHandle10
+    400018: sora_model_0042:ikHandle2
+    400020: sora_model_0042:ikHandle3
+    400022: sora_model_0042:ikHandle6
+    400024: sora_model_0042:ikHandle8
+    400026: sora_model_0042:ikHandle9
+    400028: sora_model_0042:L_been
+    400030: sora_model_0042:L_elleboog
+    400032: sora_model_0042:L_elleboog_ctr
+    400034: sora_model_0042:L_enkel
+    400036: sora_model_0042:L_enkel_ctr
+    400038: sora_model_0042:L_hand
+    400040: sora_model_0042:L_knie
+    400042: sora_model_0042:L_knie_ctr
+    400044: sora_model_0042:L_pols
+    400046: sora_model_0042:L_pols_ctr
+    400048: sora_model_0042:L_shoulder
+    400050: sora_model_0042:L_shoulder_ctr
+    400052: sora_model_0042:L_voet
+    400054: sora_model_0042:L_voet 1
+    400056: sora_model_0042:mid
+    400058: sora_model_0042:mid_ctr
+    400060: sora_model_0042:nek
+    400062: sora_model_0042:pasted__polySurface14
+    400064: sora_model_0042:polySurface10
+    400066: sora_model_0042:R_been
+    400068: sora_model_0042:R_elleboog
+    400070: sora_model_0042:R_elleboog_ctr
+    400072: sora_model_0042:R_enkel
+    400074: sora_model_0042:R_enkel_ctr
+    400076: sora_model_0042:R_hand
+    400078: sora_model_0042:R_knie
+    400080: sora_model_0042:R_knie_ctr
+    400082: sora_model_0042:R_pols
+    400084: sora_model_0042:R_pols_ctr
+    400086: sora_model_0042:R_shoulder
+    400088: sora_model_0042:R_shoulder_ctr
+    400090: sora_model_0042:torso
+    400092: sora_model_0042:torso_ctr
+    400094: sora_model_0042:vest
+    2300000: sora_model_0042:pasted__polySurface14
+    3300000: sora_model_0042:pasted__polySurface14
+    4300000: sora_model_0042:polySurface10
+    4300002: sora_model_0042:pasted__polySurface14
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: sora_model_0042:polySurface10
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sora_model_0042_lambert18
+    second: {fileID: 2100000, guid: 2a4c9d702e86f7247be0374aefa3a52c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sora_model_0042_lambert20
+    second: {fileID: 2100000, guid: 829b9e90e3d39a448b2bb24885c62957, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 27
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.3
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e616d3b3bbae24e4ba308125e54ee6ed,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

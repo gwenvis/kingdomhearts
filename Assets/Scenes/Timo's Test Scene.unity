@@ -633,12 +633,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e105321781aa5124da75cc1d510e8686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 65399239}
-  player: {fileID: 1002172858}
-  idle: {fileID: 21300000, guid: 6bc7100a97c671e40987a8a93b2f5d1f, type: 3}
-  attackRange: {fileID: 21300000, guid: 6d5a7e8dd068aef4c8ae0b58bf1b36e5, type: 3}
-  hit: {fileID: 21300000, guid: 7d2afe5817d200745b15ce2d6d7bf208, type: 3}
-  image: {fileID: 1001645975}
+  _target: {fileID: 65399239}
+  _player: {fileID: 1002172858}
+  _idle: {fileID: 21300000, guid: 6bc7100a97c671e40987a8a93b2f5d1f, type: 3}
+  _attackRange: {fileID: 21300000, guid: 6d5a7e8dd068aef4c8ae0b58bf1b36e5, type: 3}
+  _hit: {fileID: 21300000, guid: 7d2afe5817d200745b15ce2d6d7bf208, type: 3}
+  _image: {fileID: 1001645975}
 --- !u!114 &1001645975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 6bc7100a97c671e40987a8a93b2f5d1f, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93288d53d4715af46924cbcaf9848eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 1002172863}
+  _animController: {fileID: 1002172863}
 --- !u!136 &1002172862
 CapsuleCollider:
   m_ObjectHideFlags: 0
