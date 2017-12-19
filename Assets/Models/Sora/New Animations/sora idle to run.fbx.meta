@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e616d3b3bbae24e4ba308125e54ee6ed
-timeCreated: 1513594961
+guid: af3d0f662e359e94c905db0f415763f6
+timeCreated: 1513681760
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -50,9 +50,10 @@ ModelImporter:
     100084: sora_model_0042:R_pols_ctr
     100086: sora_model_0042:R_shoulder
     100088: sora_model_0042:R_shoulder_ctr
-    100090: sora_model_0042:torso
-    100092: sora_model_0042:torso_ctr
-    100094: sora_model_0042:vest
+    100090: sora_model_0042:root
+    100092: sora_model_0042:torso
+    100094: sora_model_0042:torso_ctr
+    100096: sora_model_0042:vest
     400000: //RootNode
     400002: sora_model_0042:gezicht
     400004: sora_model_0042:haar
@@ -98,16 +99,16 @@ ModelImporter:
     400084: sora_model_0042:R_pols_ctr
     400086: sora_model_0042:R_shoulder
     400088: sora_model_0042:R_shoulder_ctr
-    400090: sora_model_0042:torso
-    400092: sora_model_0042:torso_ctr
-    400094: sora_model_0042:vest
+    400090: sora_model_0042:root
+    400092: sora_model_0042:torso
+    400094: sora_model_0042:torso_ctr
+    400096: sora_model_0042:vest
     2300000: sora_model_0042:pasted__polySurface14
     3300000: sora_model_0042:pasted__polySurface14
     4300000: sora_model_0042:polySurface10
     4300002: sora_model_0042:pasted__polySurface14
-    7400000: Take 001
+    7400000: Sora Idle To Run
     9500000: //RootNode
-    11100000: //RootNode
     13700000: sora_model_0042:polySurface10
   externalObjects:
   - first:
@@ -138,7 +139,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -147,15 +148,15 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Sora Idle To Run
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 57
-      wrapMode: 2
+      lastFrame: 26
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
-      loop: 1
+      loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
@@ -216,7 +217,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
