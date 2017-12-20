@@ -1,4 +1,5 @@
 ﻿// Created by Timo Heijne
+// camera relative move by Antonio Bottelier
 
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float _movementSpeed;
     [SerializeField] private PlayerAnimation _playerAnimation;
 
+	public bool CanMove { get; private set; }
+
 	// Use this for initialization
 	void Start () {
 	    if (_rb == null)
@@ -18,10 +21,19 @@ public class PlayerMovement : MonoBehaviour {
 
         if (_playerAnimation == null)
             Debug.LogError("PlayerMovement :: _playerAnimation not found");
+
+		CanMove = true;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		if (!CanMove)
+		{
+			_rb.velocity = Vector3.zero;
+			return;
+		}
+		
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 		
@@ -44,4 +56,9 @@ public class PlayerMovement : MonoBehaviour {
 	            Quaternion.LookRotation(_rb.velocity, Vector3.up), Time.deltaTime * 10);
         }          
     }
+
+	public void ToggleCanMove(bool canmove)
+	{
+		CanMove = canmove;
+	}
 }
