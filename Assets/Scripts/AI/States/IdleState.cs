@@ -1,6 +1,7 @@
 ﻿// Created by Antonio Bottelier
 
 using System;
+using UnityEngine;
 
 namespace AI
 {
@@ -11,7 +12,8 @@ namespace AI
         }
 
         public void Act(EnemyAI ai)
-        {
+        {    
+            Debug.Log("Test");
             float distance = ai.GetTargetDistance();
             if (distance < ai.throwDistance)
             {

@@ -13,6 +13,10 @@ public class AIBall : MonoBehaviour
     
     private Vector3 origin, direction;
 
+    void Start() {
+        Destroy(gameObject, 5);
+    }
+
     // Maybe a minimum distance is needed? maybe.
     public void SetValues(Vector3 origin, Vector3 direction, float distance, float heightdifference)
     {
@@ -42,5 +46,11 @@ public class AIBall : MonoBehaviour
         
         x += Time.deltaTime * speed;
 
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Player")) {
+            Destroy(gameObject);
+        }
     }
 }

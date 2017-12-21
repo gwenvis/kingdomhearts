@@ -1,5 +1,6 @@
 ﻿// Created by Antonio Bottelier
 
+using System;
 using UnityEngine;
 
 namespace AI
@@ -12,7 +13,8 @@ namespace AI
 
         public void Act(EnemyAI ai)
         {
-            
+            ai.CurrentState = new IdleState();
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// Created by Antonio Bottelier
-// Enemy Animation implemented by Timo Heijne
+// Enemy Animation & Ball Throwing implemented by Timo Heijne
 
 using System;
 using System.Collections;
@@ -60,6 +60,13 @@ namespace AI
 
         public EnemyAnimation GetAIAnimator() {
             return enemyAnimation;
+        }
+
+        public void ThrowBall() {
+            if (_currentState.GetType().Name == "ThrowState") {
+                ThrowState state = (ThrowState)_currentState;
+                state.SpawnBall(this);
+            }
         }
     }
 }
