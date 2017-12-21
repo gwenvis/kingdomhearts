@@ -12,8 +12,8 @@ namespace AI
         
         public void Init(EnemyAI ai) {
             timer = ai.decisionTime;
-            ai.GetAIAnimator().SetState(EnemyAnimation.State.idle);
-            
+            ai.enemyAnimation.SetState(EnemyAnimation.State.idle);
+            ai.navAgent.isStopped = true;
             Debug.Log("IdleState :: Init");
         }
 

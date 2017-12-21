@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AI;
+using UnityEngine.AI;
 
 namespace AI
 {
@@ -14,6 +15,7 @@ namespace AI
     {
         public GameObject throwingBall;
         public float LastThrowTime { get; private set; }
+        public float walkDistance = 15;
         private State _currentState = new IdleState();
         public readonly float throwDistance = 3;
         public readonly float moveDistance = 6;
@@ -21,7 +23,8 @@ namespace AI
         public readonly float decisionTime = 1.5f; // Means every X seconds the enemy decides whether he should attack, move, throw
         private ParticleSystem walkParticle;
 
-        private EnemyAnimation enemyAnimation;
+        public EnemyAnimation enemyAnimation { get; private set; }
+        public NavMeshAgent navAgent { get; private set; }
         
         public Rigidbody RgdBody { get; private set; }
         public GameObject Target { get; private set; }
@@ -36,6 +39,7 @@ namespace AI
             walkParticle = transform.Find("walk").GetComponent<ParticleSystem>();
             walkParticle.Stop();
             Target = GameObject.FindGameObjectWithTag("Player");
+            navAgent = GetComponent<NavMeshAgent>();
             
             enemyAnimation = GetComponent<EnemyAnimation>();
             
@@ -60,10 +64,6 @@ namespace AI
         public Vector3 GetTargetVector()
         {
             return (transform.position - Target.transform.position);
-        }
-
-        public EnemyAnimation GetAIAnimator() {
-            return enemyAnimation;
         }
 
         public ParticleSystem GetWalKParticle()

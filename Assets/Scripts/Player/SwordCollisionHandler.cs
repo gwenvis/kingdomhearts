@@ -15,15 +15,6 @@ public class SwordCollisionHandler : MonoBehaviour
 	void Start () {
 		hit = UnityEngine.Resources.Load<GameObject>("HitBall");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	private void OnCollisionEnter(Collision other) {
-		throw new NotImplementedException();
-	}
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag != "Enemy") return;

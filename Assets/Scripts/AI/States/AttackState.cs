@@ -8,7 +8,7 @@ namespace AI
     public struct AttackState : State
     {
         public void Init(EnemyAI ai) {
-            ai.GetAIAnimator().SetState(EnemyAnimation.State.attack);
+            ai.enemyAnimation.SetState(EnemyAnimation.State.attack);
             
             Debug.Log("AttackState :: Init");
         }

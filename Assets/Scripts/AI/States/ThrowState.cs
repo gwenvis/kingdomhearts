@@ -11,7 +11,7 @@ namespace AI
         public void Init(EnemyAI ai) {
             stage = ThrowStage.Preparing;
             time = UnityEngine.Time.time;
-            ai.GetAIAnimator().SetState(EnemyAnimation.State.thow);
+            ai.enemyAnimation.SetState(EnemyAnimation.State.thow);
             
             Debug.Log("ThrowState :: Init");
         }
