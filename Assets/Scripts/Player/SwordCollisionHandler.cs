@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AI;
 using UnityEngine;
 
 public class SwordCollisionHandler : MonoBehaviour {
@@ -22,6 +23,17 @@ public class SwordCollisionHandler : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag != "Enemy") return;
+		
+		EnemyAI eai = other.gameObject.GetComponent<EnemyAI>();
+		
+		Debug.Log("SwordCollisionHandler :: Trigger Activated Tag:" + other.gameObject.tag);
+		
+		if (eai) {
+			Debug.Log("SwordCollisionHandler :: Enemy State Switched");
+			eai.CurrentState = new HitState();
+		}
+		
 		Target.instance.ShowAttack();
 	}
 }

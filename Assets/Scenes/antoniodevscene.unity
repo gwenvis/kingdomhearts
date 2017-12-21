@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 65399244}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -623,17 +623,6 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 100028, guid: bd24713375bba23439e5fdd7772a3751, type: 3}
   m_PrefabInternal: {fileID: 1563882271}
---- !u!114 &1213503836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1213503835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0913a5fba23baf49b8f652d65833e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1213503837
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -646,6 +635,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41542354, y: 0.048120346, z: 1.67}
   m_Center: {x: 0.006483693, y: 0.0068244394, z: 0.5}
+--- !u!114 &1213503839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1213503835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0913a5fba23baf49b8f652d65833e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1250537208
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +788,10 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 166ee9cdda1acce45ab2d2762a546711, type: 2}
     - target: {fileID: 100000, guid: bd24713375bba23439e5fdd7772a3751, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bd24713375bba23439e5fdd7772a3751, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
