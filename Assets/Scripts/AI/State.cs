@@ -1,7 +1,7 @@
 ﻿namespace AI
 {
-    public interface State
-    {
+    public interface State {
+        void Init(EnemyAI ai);
         void Act(EnemyAI ai);
     }
 }

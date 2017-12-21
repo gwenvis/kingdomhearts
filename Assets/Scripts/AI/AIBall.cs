@@ -21,7 +21,7 @@ public class AIBall : MonoBehaviour
         this.direction.y = 0;
         this.direction.Normalize();
         this.distance = distance;
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (this.distance < 6) this.distance = 6;
         this.heightdifference = heightdifference;
         

@@ -1,16 +1,16 @@
-﻿// Created by Antonio Bottelier
+﻿// A magnificently modified product of MoveState...
 
 using UnityEngine;
 
 namespace AI
 {
-    public struct MoveState : State
+    public struct HitState : State
     {
         private bool setup;
         private Vector3 direction;
 
         public void Init(EnemyAI ai) {
-            ai.GetAIAnimator().SetState(EnemyAnimation.State.walking);
+            ai.GetAIAnimator().SetState(EnemyAnimation.State.hit);
         }
 
         public void Act(EnemyAI ai)
@@ -24,7 +24,7 @@ namespace AI
             }
 
             ai.RgdBody.MovePosition(ai.transform.position + direction * ai.moveSpeed * Time.deltaTime);
-            if (ai.GetTargetDistance() > ai.moveDistance)
+            if (ai.GetTargetDistance() * 1.5f > ai.moveDistance)
                 ai.CurrentState = new IdleState();
         }
     }
