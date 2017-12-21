@@ -18,6 +18,7 @@ namespace AI
         public readonly float throwDistance = 3;
         public readonly float moveDistance = 6;
         public readonly float moveSpeed = 12f;
+        public readonly float decisionTime = 1.5f; // Means every X seconds the enemy decides whether he should attack, move, throw
 
         private EnemyAnimation enemyAnimation;
         

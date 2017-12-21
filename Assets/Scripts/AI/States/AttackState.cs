@@ -9,6 +9,8 @@ namespace AI
     {
         public void Init(EnemyAI ai) {
             ai.GetAIAnimator().SetState(EnemyAnimation.State.attack);
+            
+            Debug.Log("AttackState :: Init");
         }
 
         public void Act(EnemyAI ai)
