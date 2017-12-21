@@ -26,7 +26,12 @@ public class PlayerAnimation : MonoBehaviour {
     [SerializeField]
     private Animator _animController;
 
-	// Use this for initialization
+    public Animator AnimController
+    {
+        get { return _animController; }
+    }
+
+    // Use this for initialization
     private void Start () {
         if (_animController == null)
             Debug.LogError("PlayerAnimation :: Missing Animator");
@@ -71,6 +76,7 @@ public class PlayerAnimation : MonoBehaviour {
             _animController.SetBool("Walking", false);
         }
     }
+    
 
     /// <summary>
     /// Returns Current Attack type
