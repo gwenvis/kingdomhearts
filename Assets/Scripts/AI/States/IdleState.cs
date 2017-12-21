@@ -1,9 +1,15 @@
-﻿using System;
+﻿// Created by Antonio Bottelier
+
+using System;
 
 namespace AI
 {
     public struct IdleState : State
     {
+        public void Init(EnemyAI ai) {
+            ai.GetAIAnimator().SetState(EnemyAnimation.State.idle);
+        }
+
         public void Act(EnemyAI ai)
         {
             float distance = ai.GetTargetDistance();

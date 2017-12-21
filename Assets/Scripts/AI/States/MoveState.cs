@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// Created by Antonio Bottelier
+
+using UnityEngine;
 
 namespace AI
 {
@@ -6,7 +8,11 @@ namespace AI
     {
         private bool setup;
         private Vector3 direction;
-        
+
+        public void Init(EnemyAI ai) {
+            ai.GetAIAnimator().SetState(EnemyAnimation.State.walking);
+        }
+
         public void Act(EnemyAI ai)
         {
             if (!setup)

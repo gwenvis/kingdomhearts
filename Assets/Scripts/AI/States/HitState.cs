@@ -8,7 +8,11 @@ namespace AI
     {
         private bool setup;
         private Vector3 direction;
-        
+
+        public void Init(EnemyAI ai) {
+            ai.GetAIAnimator().SetState(EnemyAnimation.State.hit);
+        }
+
         public void Act(EnemyAI ai)
         {
             if (!setup)

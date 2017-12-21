@@ -7,7 +7,11 @@ namespace AI
         private bool setup;
         private ThrowStage stage;
         private float time;
-        
+
+        public void Init(EnemyAI ai) {
+            ai.GetAIAnimator().SetState(EnemyAnimation.State.thow);
+        }
+
         public void Act(EnemyAI ai)
         {
             if (!setup)
