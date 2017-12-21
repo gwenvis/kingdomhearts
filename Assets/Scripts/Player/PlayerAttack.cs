@@ -45,27 +45,20 @@ public class PlayerAttack : MonoBehaviour {
                     _playerAnimation.PlayAttackNumber(PlayerAnimation.AttackType.One);
                     break;
             }
-
-            StartCoroutine(WaitForAnimMove());
+            
+            _playerAnimation.AnimController.SetBool("Walking", false);
+            _playerMovement.ToggleCanMove(false);
         }
-    }
-
-    private IEnumerator WaitForAnimMove()
-    {
-        _playerMovement.ToggleCanMove(false);
         
         var anim = _playerAnimation.AnimController;
-        while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
-            yield return new WaitForEndOfFrame();
+            _playerMovement.ToggleCanMove(true);
         }
-
-        while (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        else
         {
             transform.position += transform.forward * forwardSpeed * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            _playerMovement.ToggleCanMove(false);
         }
-
-        _playerMovement.ToggleCanMove(true);
     }
 }

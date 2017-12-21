@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 	    if (_rb == null)
 	        Debug.LogError("PlayerMovement :: Rigidbody not found on player");
-
+ 
         if (_playerAnimation == null)
             Debug.LogError("PlayerMovement :: _playerAnimation not found");
 
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (!CanMove)
 		{
-			_rb.velocity = Vector3.zero;
+			_rb.velocity = new Vector3(0, _rb.velocity.y, 0);
 			return;
 		}
 		
