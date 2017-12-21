@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (!CanMove)
 		{
+			_playerAnimation.AnimController.SetBool("Walking", false);
 			_rb.velocity = new Vector3(0, _rb.velocity.y, 0);
 			return;
 		}
