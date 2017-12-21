@@ -49,7 +49,12 @@ public class AIBall : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Player")) {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameObject hit = UnityEngine.Resources.Load<GameObject>("HitBall");
+            GameObject particle = Instantiate(hit);
+            particle.transform.position = transform.position;
+            Destroy(particle, 2);
             Destroy(gameObject);
         }
     }

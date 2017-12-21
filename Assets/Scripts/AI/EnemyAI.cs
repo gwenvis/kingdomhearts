@@ -1,5 +1,5 @@
 ﻿// Created by Antonio Bottelier
-// Enemy Animation & Ball Throwing implemented by Timo Heijne
+// Enemy Animation, Ball Throwing, Particles implemented by Timo Heijne
 
 using System;
 using System.Collections;
@@ -19,6 +19,7 @@ namespace AI
         public readonly float moveDistance = 6;
         public readonly float moveSpeed = 12f;
         public readonly float decisionTime = 1.5f; // Means every X seconds the enemy decides whether he should attack, move, throw
+        private ParticleSystem walkParticle;
 
         private EnemyAnimation enemyAnimation;
         
@@ -31,7 +32,9 @@ namespace AI
         } 
 
         private void Start()
-        {
+        {    
+            walkParticle = transform.Find("walk").GetComponent<ParticleSystem>();
+            walkParticle.Stop();
             Target = GameObject.FindGameObjectWithTag("Player");
             
             enemyAnimation = GetComponent<EnemyAnimation>();
@@ -61,6 +64,11 @@ namespace AI
 
         public EnemyAnimation GetAIAnimator() {
             return enemyAnimation;
+        }
+
+        public ParticleSystem GetWalKParticle()
+        {
+            return walkParticle;
         }
 
         public void ThrowBall() {

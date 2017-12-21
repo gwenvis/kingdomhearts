@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private PlayerAnimation _playerAnimation;
+	[SerializeField] private ParticleSystem _particleSystem;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,9 @@ public class PlayerMovement : MonoBehaviour {
 
         if (_playerAnimation == null)
             Debug.LogError("PlayerMovement :: _playerAnimation not found");
+		
+		if(_particleSystem == null)
+			Debug.LogError("PlayerMovement :: _particleSystem not found");
 	}
 	
 	// Update is called once per frame
@@ -38,7 +42,10 @@ public class PlayerMovement : MonoBehaviour {
 		
         if (_rb.velocity.x == 0 && _rb.velocity.z == 0) {
             _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Idle);
-        } else {
+	        _particleSystem.Stop();
+        } else
+        {
+	        _particleSystem.Play();
             _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Walking);
             transform.rotation = Quaternion.Slerp(transform.rotation, 
 	            Quaternion.LookRotation(_rb.velocity, Vector3.up), Time.deltaTime * 10);

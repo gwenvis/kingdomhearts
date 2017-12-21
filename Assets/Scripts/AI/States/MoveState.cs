@@ -21,8 +21,13 @@ namespace AI
         public void Act(EnemyAI ai)
         {
             ai.RgdBody.MovePosition(ai.transform.position + direction * ai.moveSpeed * Time.deltaTime);
+            ai.GetWalKParticle().Play();
+            
             if (ai.GetTargetDistance() > ai.moveDistance)
-                ai.CurrentState = new IdleState();
+            {
+                ai.GetWalKParticle().Stop();
+                ai.CurrentState = new IdleState();             
+            }              
         }
     }
 }
