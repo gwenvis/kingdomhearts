@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private PlayerAnimation _playerAnimation;
+	[SerializeField] private ParticleSystem _particleSystem;
 
 	public bool CanMove { get; private set; }
 
@@ -18,10 +19,11 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 	    if (_rb == null)
 	        Debug.LogError("PlayerMovement :: Rigidbody not found on player");
- 
         if (_playerAnimation == null)
-            Debug.LogError("PlayerMovement :: _playerAnimation not found");
-
+            Debug.LogError("PlayerMovement :: _playerAnimation not found");		
+		if(_particleSystem == null)
+			Debug.LogError("PlayerMovement :: _particleSystem not found");
+		
 		CanMove = true;
 	}
 	
@@ -51,10 +53,16 @@ public class PlayerMovement : MonoBehaviour {
 		
         if (_rb.velocity.x == 0 && _rb.velocity.z == 0) {
             _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Idle);
-        } else {
+	        _particleSystem.Stop();
+        } else
+        {
+	        _particleSystem.Play();
             _playerAnimation.ChangePlayerStatus(PlayerAnimation.Status.Walking);
+	        var lookrot = _rb.velocity;
+	        lookrot.y = 0;
+	        lookrot.Normalize();
             transform.rotation = Quaternion.Slerp(transform.rotation, 
-	            Quaternion.LookRotation(_rb.velocity, Vector3.up), Time.deltaTime * 10);
+	            Quaternion.LookRotation(lookrot, Vector3.up), Time.deltaTime * 10);
         }          
     }
 

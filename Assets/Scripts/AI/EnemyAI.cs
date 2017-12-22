@@ -1,11 +1,12 @@
 ﻿// Created by Antonio Bottelier
-// Enemy Animation implemented by Timo Heijne
+// Enemy Animation, Ball Throwing, Particles implemented by Timo Heijne
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AI;
+using UnityEngine.AI;
 
 namespace AI
 {
@@ -14,12 +15,16 @@ namespace AI
     {
         public GameObject throwingBall;
         public float LastThrowTime { get; private set; }
+        public float walkDistance = 15;
         private State _currentState = new IdleState();
         public readonly float throwDistance = 3;
         public readonly float moveDistance = 6;
         public readonly float moveSpeed = 12f;
+        public readonly float decisionTime = 1.5f; // Means every X seconds the enemy decides whether he should attack, move, throw
+        private ParticleSystem walkParticle;
 
-        private EnemyAnimation enemyAnimation;
+        public EnemyAnimation enemyAnimation { get; private set; }
+        public NavMeshAgent navAgent { get; private set; }
         
         public Rigidbody RgdBody { get; private set; }
         public GameObject Target { get; private set; }
@@ -30,8 +35,11 @@ namespace AI
         } 
 
         private void Start()
-        {
+        {    
+            walkParticle = transform.Find("walk").GetComponent<ParticleSystem>();
+            walkParticle.Stop();
             Target = GameObject.FindGameObjectWithTag("Player");
+            navAgent = GetComponent<NavMeshAgent>();
             
             enemyAnimation = GetComponent<EnemyAnimation>();
             
@@ -58,8 +66,16 @@ namespace AI
             return (transform.position - Target.transform.position);
         }
 
-        public EnemyAnimation GetAIAnimator() {
-            return enemyAnimation;
+        public ParticleSystem GetWalKParticle()
+        {
+            return walkParticle;
+        }
+
+        public void ThrowBall() {
+            if (_currentState.GetType().Name == "ThrowState") {
+                ThrowState state = (ThrowState)_currentState;
+                state.SpawnBall(this);
+            }
         }
     }
 }

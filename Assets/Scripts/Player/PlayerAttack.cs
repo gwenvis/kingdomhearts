@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour {
         }
         else
         {
-            transform.position += transform.forward * forwardSpeed * Time.deltaTime;
+            transform.position += (_enemy.position - transform.position).normalized * forwardSpeed * Time.deltaTime;
             RotateToEnemy();
             _playerMovement.ToggleCanMove(false);
         }
@@ -66,7 +66,11 @@ public class PlayerAttack : MonoBehaviour {
     private void RotateToEnemy()
     {
         float speed = 10 * Time.deltaTime;
-        var lookrot = Quaternion.LookRotation(_enemy.transform.position - transform.position);
+        var vector = _enemy.transform.position - transform.position;
+        vector.y = 0;
+        vector.Normalize();
+        var lookrot = Quaternion.LookRotation(vector);
+        
         transform.rotation = Quaternion.Lerp(transform.rotation, lookrot, speed);
     }
 }
