@@ -16,14 +16,14 @@ namespace AI
             direction.Normalize();
 
             ai.navAgent.isStopped = true;
+            ai.navAgent.velocity = direction.normalized * 5;
 
             Debug.Log("HitState :: Init");
         }
 
         public void Act(EnemyAI ai)
-        {
-            ai.RgdBody.MovePosition(ai.transform.position + direction * (ai.moveSpeed * 2) * Time.deltaTime);
-            if (ai.GetTargetDistance() * 2f > ai.moveDistance)
+        {            
+            if (ai.GetTargetDistance() * 2 > ai.moveDistance)
                 ai.CurrentState = new IdleState();
         }
     }

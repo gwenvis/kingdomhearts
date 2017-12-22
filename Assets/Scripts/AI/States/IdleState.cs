@@ -29,7 +29,7 @@ namespace AI
                 }
                 else {
                     int rand = UnityEngine.Random.Range(0, 20);
-                    Debug.Log(rand);
+                    //Debug.Log(rand);
                     ai.CurrentState = rand < 5 ? new MoveState() as State : new ThrowState();
                 }
             }
