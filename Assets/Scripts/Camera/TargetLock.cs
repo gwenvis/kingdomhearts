@@ -10,6 +10,9 @@ public class TargetLock : MonoBehaviour {
 	[SerializeField] private float _maxHOffset = 3;
 	[SerializeField] private bool _lerp = false;
 	[SerializeField] private float _camSpeed = 10;
+
+	[Header("Starting values")] 
+	[SerializeField] private float _startingHOffset;
 	
 	private float _distance;
 	private float _hOffset;
@@ -25,7 +28,7 @@ public class TargetLock : MonoBehaviour {
 		if(!_target1 || !_target2) Destroy(this); // terminate this script if there are not two targets.
 		_staticOffset = new Vector3(0, 2f, 0);
 		_distance = 4;
-		_hOffset = -1f;
+		_hOffset = _startingHOffset;
 		_distHOffset = _hOffset;
 		_wantedPosition = _target1.position;
 		_lastT1Pos = _target1.position;
