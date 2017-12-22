@@ -8,14 +8,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour {
 
+	// Allen door Timo behalve
     [SerializeField] private Rigidbody _rb;
-    [SerializeField] private float _movementSpeed;
+    [SerializeField] private float _movementSpeed; // Deze, door Antonio.
     [SerializeField] private PlayerAnimation _playerAnimation;
 	[SerializeField] private ParticleSystem _particleSystem;
 
 	public bool CanMove { get; private set; }
 
-	// Use this for initialization
+	// Door Timo. Behalve de boolean init
 	void Start () {
 	    if (_rb == null)
 	        Debug.LogError("PlayerMovement :: Rigidbody not found on player");
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 		CanMove = true;
 	}
 	
-	// Update is called once per frame
+	// (Deze dus door Antonio)
 	void Update ()
 	{
 		if (!CanMove)
@@ -66,6 +67,7 @@ public class PlayerMovement : MonoBehaviour {
         }          
     }
 
+	// Antonio
 	public void ToggleCanMove(bool canmove)
 	{
 		CanMove = canmove;

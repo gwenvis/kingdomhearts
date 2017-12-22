@@ -14,7 +14,7 @@ public class EnemyAnimation : MonoBehaviour {
 	public enum State {
 		idle = 5,
 		walking = 1,
-		thow = 2,
+		@throw = 2,
 		hit = 3,
 		attack = 4
 	}
@@ -32,7 +32,7 @@ public class EnemyAnimation : MonoBehaviour {
 			case State.walking:
 				animController.SetBool("Walking", true);
 				break;
-			case State.thow:
+			case State.@throw:
 				animController.SetBool("Walking", false);
 				animController.SetTrigger("Throw");
 				break;

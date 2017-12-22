@@ -50,6 +50,7 @@ public class PlayerAttack : MonoBehaviour {
             _playerMovement.ToggleCanMove(false);
         }
         
+        // Oh hey kijk! Code door Antonio Bottelier.
         var anim = _playerAnimation.AnimController;
         if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
@@ -63,6 +64,7 @@ public class PlayerAttack : MonoBehaviour {
         }
     }
 
+    // Ook door Antonio Bottelier
     private void RotateToEnemy()
     {
         float speed = 10 * Time.deltaTime;

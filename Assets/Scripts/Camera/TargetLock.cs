@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
+// OMG EEN HEEL SCRIPT DAT ALLEEN DOOR ANTONIO IS GEMAAKT?
+// een heel script door antonio.
+// ja het is echt waar.
+
 
 /// Centers the camera between the two transform and stays a certain distance behind target 1.
 public class TargetLock : MonoBehaviour {
@@ -9,7 +15,7 @@ public class TargetLock : MonoBehaviour {
     [SerializeField] private Transform _target2;
 	[SerializeField] private float _maxHOffset = 3;
 	[SerializeField] private bool _lerp = false;
-	[SerializeField] private float _camSpeed = 10;
+	[SerializeField] private float _camSpeed = 10.1f; // geintje lol deze is door timo
 
 	[Header("Starting values")] 
 	[SerializeField] private float _startingHOffset;
@@ -22,8 +28,8 @@ public class TargetLock : MonoBehaviour {
 	private Vector3 _lastT1Pos;
 
 	public static Transform[] Targets { get; private set; }
-	
-	void Start () 
+
+	public void Init()
 	{
 		if(!_target1 || !_target2) Destroy(this); // terminate this script if there are not two targets.
 		_staticOffset = new Vector3(0, 2f, 0);
@@ -37,6 +43,10 @@ public class TargetLock : MonoBehaviour {
 		{
 			_target1, _target2
 		};
+	}
+	
+	void Start ()
+	{
 	}
 	
 	void LateUpdate ()
@@ -85,6 +95,18 @@ public class TargetLock : MonoBehaviour {
 	private void SetHorizontalPos(Vector3 cross, float h)
 	{
 		_wantedPosition += cross.normalized * h;
+	}
+
+	public Vector3 GetWantedPosition()
+	{
+		var targetvector = _target2.position - _target1.position;
+		targetvector.y = 0;
+		var targetvectornormal = targetvector.normalized;
+		var c = Vector3.Cross(targetvectornormal, Vector3.up);
+		c.y = 0;
+		
+		var x = _target1.position + (-targetvectornormal * _distance) + _staticOffset;
+		return x + c.normalized * _hOffset;
 	}
 	
 }

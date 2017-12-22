@@ -1,4 +1,5 @@
 ﻿// Created by Antonio Bottelier
+// Init en de zooi voor de else statement van Timo
 
 using System;
 using System.Timers;
@@ -25,7 +26,7 @@ namespace AI
                 if (distance < ai.throwDistance) {
                     int rand = UnityEngine.Random.Range(0, 20);
                     State state;
-                    ai.CurrentState = rand < 0 ? new AttackState() as State : new MoveState();
+                    ai.CurrentState = rand < 8 ? new ThrowState() as State : new MoveState();
                 }
                 else {
                     int rand = UnityEngine.Random.Range(0, 20);

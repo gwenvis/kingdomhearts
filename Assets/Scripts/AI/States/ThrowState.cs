@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// Created by Antonio
+// 50% van de Init door Timo
 namespace AI
 {
     public struct ThrowState : State
@@ -11,7 +13,7 @@ namespace AI
         public void Init(EnemyAI ai) {
             stage = ThrowStage.Preparing;
             time = UnityEngine.Time.time;
-            ai.enemyAnimation.SetState(EnemyAnimation.State.thow);
+            ai.enemyAnimation.SetState(EnemyAnimation.State.@throw);
             
             Debug.Log("ThrowState :: Init");
         }
@@ -32,7 +34,7 @@ namespace AI
         public void SpawnBall(EnemyAI ai) {
             stage = ThrowStage.Throwing;
 
-            Vector3 ballPos = ai.transform.Find("ball").transform.position;
+            Vector3 ballPos = ai.transform.Find("ball").transform.position; // Timo
 
             var ob = UnityEngine.Object
                 .Instantiate(ai.throwingBall, ballPos, ai.transform.rotation)

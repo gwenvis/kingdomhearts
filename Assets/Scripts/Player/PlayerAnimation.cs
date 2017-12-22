@@ -1,7 +1,6 @@
 ﻿// Created by Timo Heijne
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour {
@@ -26,6 +25,7 @@ public class PlayerAnimation : MonoBehaviour {
     [SerializeField]
     private Animator _animController;
 
+    // getter door Antonio
     public Animator AnimController
     {
         get { return _animController; }

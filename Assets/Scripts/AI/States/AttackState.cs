@@ -15,8 +15,9 @@ namespace AI
 
         public void Act(EnemyAI ai)
         {
-            ai.CurrentState = new IdleState();
-            throw new NotImplementedException();
+            ai.CurrentState = new IdleState();        // door timo
+            throw new NotImplementedException();      // of niet?
+                                                      // jawel.
         }
     }
 }
